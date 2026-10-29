@@ -7,9 +7,15 @@ py -m venv .venv
 .\.venv\Scripts\Activate.ps1
 py -m pip install -r requirements.txt
 
+Linux:
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+
 ## Run
 python -m pytest
 ruff check src
+python src/env_check.py > results/environment_report.txt
 
 ## What is in this repository
 src/	                    Contains Python source code
@@ -24,4 +30,6 @@ requirements-frozen.txt	    Records the installed package versions
 AI_USE_LOG.md	            Records and declares your AI usage
 
 ## What is not committed, and why
-<Two sentences in your own words: which folders are ignored by Git and what could go wrong if they were committed.>
+Git didnt commit .venv/, results/, cache folders, and .env
+
+Committing them could add unnecessary files, or expose sensitive information
